@@ -19,6 +19,17 @@ module.exports = (sequelize, Sequelize) => {
         username:{
             notEmpty: true,
             type: Sequelize.STRING
+        },
+        password:{
+            allowNull: false,
+            type: Sequelize.STRING
+        },
+        last_login:{
+            type: Sequelize.DATE
+        },
+        status:{
+            type: Sequelize.ENUM('inactive', 'pending', 'active', 'block'),
+            defaultValue: 'pending'
         }
     })
     return User
